@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 
-export function fetchData<T>(url: string): Observable<T> {
+export function createHttpObservable<T>(url: string): Observable<T> {
 	return new Observable<T>(observer => {
 		fetch(url)
 			.then(response => response.json())
