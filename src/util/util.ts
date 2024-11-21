@@ -1,10 +1,10 @@
 import { Observable } from "rxjs";
 
-export function createHttpObservable<T>(url: string): Observable<T> {
-	return new Observable<T>(observer => {
+export function createHttpObservable(url: string): Observable<any> {
+	return new Observable(observer => {
 		fetch(url)
 			.then(response => response.json())
-			.then((data: T) => {
+			.then((data: any) => {
 				observer.next(data);  // Emit the data
 				observer.complete();  // Mark the observable as complete
 			})
