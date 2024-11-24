@@ -12,6 +12,7 @@ import { Observable } from "rxjs";
 })
 export class HomeComponent implements OnInit {
 	beginnerCourses$: Observable<Course[]>;
+  intermediateCourses$: Observable<Course[]>;
 	advancedCourses$: Observable<Course[]>;
 
 	constructor() {
@@ -28,6 +29,9 @@ export class HomeComponent implements OnInit {
 		this.beginnerCourses$ = courses$.pipe(
 			map(courses => courses.filter(course => course.category === 'BEGINNER'))
 		);
+    this.intermediateCourses$ = courses$.pipe(
+      map(courses => courses.filter(course => course.category === 'INTERMEDIATE'))
+    )
 		this.advancedCourses$ = courses$.pipe(
 			map(courses => courses.filter(course => course.category === 'ADVANCED'))
 		);
